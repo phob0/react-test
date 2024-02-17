@@ -45,22 +45,6 @@ const BookForm = (props) => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     switch (name) {
-      // case 'quantity':
-      //   if (value === '' || parseInt(value) === +value) {
-      //     setBook((prevState) => ({
-      //       ...prevState,
-      //       [name]: value
-      //     }));
-      //   }
-      //   break;
-      // case 'price':
-      //   if (value === '' || value.match(/^\d{1,}(\.\d{0,2})?$/)) {
-      //     setBook((prevState) => ({
-      //       ...prevState,
-      //       [name]: value
-      //     }));
-      //   }
-      //   break;
       default:
         setBook((prevState) => ({
           ...prevState,
@@ -111,7 +95,7 @@ const BookForm = (props) => {
               />
             </Form.Group>
             <Button variant="primary" type="submit" className="submit-btn mt-3">
-              Adauga
+              Adauga/Editeaza
             </Button>
           </Form>
         </Col>
