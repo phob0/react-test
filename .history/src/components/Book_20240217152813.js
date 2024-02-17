@@ -16,14 +16,14 @@ const Book = ({
       <Card.Body>
         <Card.Title className="book-title">{bookname}</Card.Title>
         <div className="book-details">
-          <div>Nume Autor: {author}</div>
-          <div>Data publicarii: {new Date(date).toDateString()}</div>
+          <div>Author: {author}</div>
+          <div>Date: {new Date(date).toDateString()}</div>
         </div>
         <Button variant="primary" onClick={() => history.push(`/edit/${id}`)}>
-        Editeaza
+        Edit
         </Button>{' '}
         <Button variant="danger" onClick={() => handleRemoveBook(id)}>
-          Sterge
+          Delete
         </Button>
       </Card.Body>
     </Card>

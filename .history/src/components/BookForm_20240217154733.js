@@ -106,7 +106,7 @@ const BookForm = (props) => {
           />
         </Form.Group>
         <Button variant="primary" type="submit" className="submit-btn">
-          Adauga
+          Submit
         </Button>
       </Form>
     </div>

@@ -94,7 +94,6 @@ const BookForm = (props) => {
         </Form.Group>
         <Form.Group controlId="date">
           <Form.Label>Data publicarii</Form.Label>
-          <br/>
           <DatePicker
             id="startDate"
             type="date"
@@ -106,7 +105,7 @@ const BookForm = (props) => {
           />
         </Form.Group>
         <Button variant="primary" type="submit" className="submit-btn">
-          Adauga
+          Submit
         </Button>
       </Form>
     </div>

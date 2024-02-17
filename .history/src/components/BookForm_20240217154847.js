@@ -100,7 +100,7 @@ const BookForm = (props) => {
             type="date"
             name="date"
             className="input-control"
-            dateFormat="yyyy-mm-dd"
+            dateFormat="dd/MM/yyyy"
             value={date.toString()}
             onChange={date => handleInputChange({ target: { value: date, name: 'date' } })}
           />

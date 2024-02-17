@@ -77,7 +77,7 @@ const BookForm = (props) => {
             type="text"
             name="bookname"
             value={bookname}
-            placeholder="Introdu numele cartii"
+            placeholder="Enter name of book"
             onChange={handleInputChange}
           />
         </Form.Group>
@@ -88,13 +88,12 @@ const BookForm = (props) => {
             type="text"
             name="author"
             value={author}
-            placeholder="Introdu numele autorului"
+            placeholder="Enter name of author"
             onChange={handleInputChange}
           />
         </Form.Group>
         <Form.Group controlId="date">
           <Form.Label>Data publicarii</Form.Label>
-          <br/>
           <DatePicker
             id="startDate"
             type="date"
@@ -106,7 +105,7 @@ const BookForm = (props) => {
           />
         </Form.Group>
         <Button variant="primary" type="submit" className="submit-btn">
-          Adauga
+          Submit
         </Button>
       </Form>
     </div>

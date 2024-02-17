@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+var DatePicker = require("react-bootstrap-date-picker");
 
 const BookForm = (props) => {
   const [book, setBook] = useState({
@@ -71,42 +70,37 @@ const BookForm = (props) => {
       {errorMsg && <p className="errorMsg">{errorMsg}</p>}
       <Form onSubmit={handleOnSubmit}>
         <Form.Group controlId="name">
-          <Form.Label>Titlu</Form.Label>
+          <Form.Label>Book Name</Form.Label>
           <Form.Control
             className="input-control"
             type="text"
             name="bookname"
             value={bookname}
-            placeholder="Introdu numele cartii"
+            placeholder="Enter name of book"
             onChange={handleInputChange}
           />
         </Form.Group>
         <Form.Group controlId="author">
-          <Form.Label>Autor</Form.Label>
+          <Form.Label>Book Author</Form.Label>
           <Form.Control
             className="input-control"
             type="text"
             name="author"
             value={author}
-            placeholder="Introdu numele autorului"
+            placeholder="Enter name of author"
             onChange={handleInputChange}
           />
         </Form.Group>
         <Form.Group controlId="date">
           <Form.Label>Data publicarii</Form.Label>
-          <br/>
-          <DatePicker
-            id="startDate"
-            type="date"
-            name="date"
-            className="input-control"
-            dateFormat="yyyy-mm-dd"
-            value={date.toString()}
-            onChange={date => handleInputChange({ target: { value: date, name: 'date' } })}
+          <DatePicker 
+            id="example-datepicker" 
+            value={this.state.value} 
+            onChange={handleInputChange} 
           />
         </Form.Group>
         <Button variant="primary" type="submit" className="submit-btn">
-          Adauga
+          Submit
         </Button>
       </Form>
     </div>

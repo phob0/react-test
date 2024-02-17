@@ -20,10 +20,10 @@ const Book = ({
           <div>Data publicarii: {new Date(date).toDateString()}</div>
         </div>
         <Button variant="primary" onClick={() => history.push(`/edit/${id}`)}>
-        Editeaza
+        Edit
         </Button>{' '}
         <Button variant="danger" onClick={() => handleRemoveBook(id)}>
-          Sterge
+          Delete
         </Button>
       </Card.Body>
     </Card>

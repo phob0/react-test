@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-
 const BookForm = (props) => {
   const [book, setBook] = useState({
     bookname: props.book ? props.book.bookname : '',
@@ -30,11 +27,13 @@ const BookForm = (props) => {
         id: uuidv4(),
         bookname,
         author,
-        date
+        price,
+        quantity,
+        date: new Date()
       };
       props.handleOnSubmit(book);
     } else {
-      errorMsg = 'Te rog sa completezi toate campurile.';
+      errorMsg = 'Please fill out all the fields.';
     }
     setErrorMsg(errorMsg);
   };
@@ -42,22 +41,22 @@ const BookForm = (props) => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     switch (name) {
-      // case 'quantity':
-      //   if (value === '' || parseInt(value) === +value) {
-      //     setBook((prevState) => ({
-      //       ...prevState,
-      //       [name]: value
-      //     }));
-      //   }
-      //   break;
-      // case 'price':
-      //   if (value === '' || value.match(/^\d{1,}(\.\d{0,2})?$/)) {
-      //     setBook((prevState) => ({
-      //       ...prevState,
-      //       [name]: value
-      //     }));
-      //   }
-      //   break;
+      case 'quantity':
+        if (value === '' || parseInt(value) === +value) {
+          setBook((prevState) => ({
+            ...prevState,
+            [name]: value
+          }));
+        }
+        break;
+      case 'price':
+        if (value === '' || value.match(/^\d{1,}(\.\d{0,2})?$/)) {
+          setBook((prevState) => ({
+            ...prevState,
+            [name]: value
+          }));
+        }
+        break;
       default:
         setBook((prevState) => ({
           ...prevState,
@@ -71,42 +70,29 @@ const BookForm = (props) => {
       {errorMsg && <p className="errorMsg">{errorMsg}</p>}
       <Form onSubmit={handleOnSubmit}>
         <Form.Group controlId="name">
-          <Form.Label>Titlu</Form.Label>
+          <Form.Label>Book Name</Form.Label>
           <Form.Control
             className="input-control"
             type="text"
             name="bookname"
             value={bookname}
-            placeholder="Introdu numele cartii"
+            placeholder="Enter name of book"
             onChange={handleInputChange}
           />
         </Form.Group>
         <Form.Group controlId="author">
-          <Form.Label>Autor</Form.Label>
+          <Form.Label>Book Author</Form.Label>
           <Form.Control
             className="input-control"
             type="text"
             name="author"
             value={author}
-            placeholder="Introdu numele autorului"
+            placeholder="Enter name of author"
             onChange={handleInputChange}
           />
         </Form.Group>
-        <Form.Group controlId="date">
-          <Form.Label>Data publicarii</Form.Label>
-          <br/>
-          <DatePicker
-            id="startDate"
-            type="date"
-            name="date"
-            className="input-control"
-            dateFormat="yyyy-mm-dd"
-            value={date.toString()}
-            onChange={date => handleInputChange({ target: { value: date, name: 'date' } })}
-          />
-        </Form.Group>
         <Button variant="primary" type="submit" className="submit-btn">
-          Adauga
+          Submit
         </Button>
       </Form>
     </div>
