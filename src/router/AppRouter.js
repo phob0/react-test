@@ -18,7 +18,7 @@ const AppRouter = () => {
           <BooksContext.Provider value={{ books, setBooks }}>
             <Switch>
               <Route component={BooksList} path="/" exact={true} />
-              <Route component={AddBook} path="/add" />
+              <Route component={AddBook} path="/adauga" />
               <Route component={EditBook} path="/edit/:id" />
               <Route component={() => <Redirect to="/" />} />
             </Switch>
